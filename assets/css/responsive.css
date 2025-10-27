@@ -1,0 +1,324 @@
+/* 
+* FreshFruit Shop - Responsive Styles
+* รองรับการแสดงผลบนอุปกรณ์ทุกขนาดหน้าจอ
+*/
+
+/* ======= Large Devices (Desktops, less than 1200px) ======= */
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ======= Medium Devices (Tablets, less than 992px) ======= */
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+  }
+  
+  .navbar {
+    padding: 15px 0;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100%;
+    background-color: var(--white);
+    flex-direction: column;
+    padding-top: 80px;
+    z-index: 1000;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .nav-menu li {
+    margin: 0 0 10px;
+    width: 100%;
+  }
+  
+  .nav-menu a {
+    display: block;
+    padding: 10px 30px;
+    font-size: 1.1rem;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  
+  .hero {
+    padding: 80px 0;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .about-img {
+    order: -1;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    order: -1;
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* ======= Small Devices (Landscape Phones, less than 768px) ======= */
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+  
+  .section {
+    padding: 40px 0;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  .hero {
+    padding: 60px 0;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .product-tabs .tabs-nav {
+    flex-direction: column;
+    border-bottom: none;
+  }
+  
+  .product-tabs .tab-btn {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid var(--gray);
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* ======= Extra Small Devices (Portrait Phones, less than 576px) ======= */
+@media (max-width: 575.98px) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .product-add-to-cart {
+    flex-direction: column;
+  }
+  
+  .product-meta-detailed {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .blog-meta-detailed {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .blog-share {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .blog-share-title {
+    margin-bottom: 10px;
+  }
+  
+  .pagination {
+    flex-wrap: wrap;
+  }
+}
+
+/* ======= Font Size Adjustments for Small Screens ======= */
+@media (max-width: 420px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* ======= Print Styles ======= */
+@media print {
+  .site-header, 
+  .site-footer,
+  .floating-contact,
+  .product-add-to-cart,
+  .product-share,
+  .blog-share {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000;
+    background: #fff;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+  
+  .container {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .product-detail,
+  .about-intro,
+  .contact-grid {
+    display: block;
+  }
+  
+  .product-detail > div,
+  .about-intro > div,
+  .contact-grid > div {
+    margin-bottom: 20pt;
+  }
+  
+  @page {
+    margin: 2cm;
+  }
+}
