@@ -10,20 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');
     
-    if (mobileMenuBtn) {
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
         mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
+            const isOpen = navMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open', isOpen);
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
     }
-    
+
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (navMenu && navMenu.classList.contains('active') && 
-            !e.target.closest('.nav-menu') && 
+        if (navMenu && navMenu.classList.contains('active') &&
+            !e.target.closest('.nav-menu') &&
             !e.target.closest('.mobile-menu-btn')) {
             navMenu.classList.remove('active');
             document.body.classList.remove('menu-open');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
         }
     });
 
@@ -32,9 +37,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const closeBtn = document.createElement('button');
         closeBtn.className = 'mobile-menu-close';
         closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+        closeBtn.type = 'button';
+        closeBtn.setAttribute('aria-label', 'ปิดเมนู');
         closeBtn.addEventListener('click', function() {
             navMenu.classList.remove('active');
             document.body.classList.remove('menu-open');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
         });
         navMenu.prepend(closeBtn);
     }
@@ -133,8 +143,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (faqQuestions.length) {
         faqQuestions.forEach(question => {
+            const answer = question.nextElementSibling;
+            question.setAttribute('aria-expanded', 'false');
+            if (answer) {
+                answer.setAttribute('aria-hidden', 'true');
+            }
+
             question.addEventListener('click', function() {
-                this.classList.toggle('active');
+                const isActive = this.classList.toggle('active');
+                this.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                if (answer) {
+                    answer.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+                }
             });
         });
     }
